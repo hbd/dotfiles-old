@@ -340,7 +340,7 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
  '(cursor-color nil)
  '(custom-safe-themes
    (quote
-    ("1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "38ba6a938d67a452aeb1dada9d7cdeca4d9f18114e9fc8ed2b972573138d4664" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
+    ("135f98b22ab2884379122ce15f944d6f25d9dc647476c6acacb464148d06fd19" "7ee977247d099f1fa8e92f728b3ce00c2a0f4019eca0c0e0b193b834384470a3" "1ba61848d0d8c78e037867c26f118875705c20f5ad64949a8cee8c8059e5c50f" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "38ba6a938d67a452aeb1dada9d7cdeca4d9f18114e9fc8ed2b972573138d4664" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
  '(fci-rule-color "#073642")
  '(foreground-color nil)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
@@ -557,6 +557,9 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
   (push-mark)
   ad-do-it)
 
+(add-to-list 'custom-theme-load-path "/Users/keen/.dotfiles/dot.emacs.files/themes/color-theme-molokai")
+
+(add-to-list 'custom-theme-load-path "/Users/keen/.dotfiles/dot.emacs.files/themes/monokai-emacs")
 
 (load-theme 'monokai t)
 

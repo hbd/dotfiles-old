@@ -71,8 +71,8 @@ export EDITOR="emacs"
 export SHELL="/usr/local/bin/zsh"
 
 export GOROOT="$HOME/goroot"
-export GOBIN="$GOROOT/bin"
 export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
 
 export PATH="$GOBIN:/usr/local/bin:/usr/local/sbin:$PATH"
 
@@ -136,7 +136,7 @@ unsetopt share_history
 deeppep8() { [ -z "$1" ] && 1="."; files=$(find $1 -name '*.py'); echo -n "Total issues: "; echo $files | xargs pep8 --count -qq; echo; echo $files | xargs pep8 --statistic -qq --select=E | sort -n; echo; echo $files | xargs pep8 --statistic -qq --select=W | sort -n }
 pep8s(){[-z "$1" ] && 1="."; files=$(find $1 -name '*.py'); echo -n "Total issues: "; echo $files | xargs pep8 --count -qq; echo; echo $files | xargs pep8 --statistic -qq --select=E | sort -n; echo; echo $files | xargs pep8 --statistic -qq --select=W | sort -n }
 
-export PATH=$PATH:/opt/vertica/bin
+export PATH="$PATH:/opt/vertica/bin"
 
 
 function update_go() {
@@ -171,12 +171,11 @@ sourcegraph.com/sqs/goreturns
     done
 }
 
-# added by travis gem
-[ -f /Users/guillaume/.travis/travis.sh ] && source /Users/guillaume/.travis/travis.sh
-
 alias vv='docker exec -i vertica_c vsql -U dbadmin'
 alias vvt='docker exec -it vertica_c vsql -U dbadmin'
 bindkey "^[l" down-case-word
 
-fpath=(/usr/local/share/zsh-completions $fpath)
-source /usr/local/share/zsh/site-functions/_aws
+export ANDROID_HOME="$HOME/android"
+export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
+
+alias cdms="cd $GOPATH/src/github.com/agrarianlabs/mobilespike"

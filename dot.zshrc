@@ -52,7 +52,7 @@ ZSH_THEME="simple"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew go gnu-utils mosh osx tmux vagrant ssh-agent emacs docker encode64)
+plugins=(git brew go gnu-utils mosh osx tmux vagrant ssh-agent emacs docker encode64 almostontop)
 
 ZSH_TMUX_AUTOSTART=true
 

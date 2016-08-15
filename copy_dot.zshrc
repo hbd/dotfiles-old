@@ -9,7 +9,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="simple"
+ZSH_THEME="random"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -52,7 +52,7 @@ ZSH_THEME="simple"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew go gnu-utils mosh osx tmux vagrant ssh-agent emacs docker encode64 almostontop)
+plugins=(git brew go gnu-utils mosh osx tmux vagrant ssh-agent emacs docker encode64)
 
 ZSH_TMUX_AUTOSTART=true
 
@@ -70,9 +70,9 @@ export HOST=`uname -n`
 export EDITOR="emacs"
 export SHELL="/usr/local/bin/zsh"
 
-export GOROOT="$HOME/go1.6"
+export GOROOT="$HOME/goroot"
+export GOBIN="$GOROOT/bin"
 export GOPATH="$HOME/go"
-export GOBIN="$GOPATH/bin"
 
 export PATH="$GOBIN:/usr/local/bin:/usr/local/sbin:$PATH"
 
@@ -136,12 +136,13 @@ unsetopt share_history
 deeppep8() { [ -z "$1" ] && 1="."; files=$(find $1 -name '*.py'); echo -n "Total issues: "; echo $files | xargs pep8 --count -qq; echo; echo $files | xargs pep8 --statistic -qq --select=E | sort -n; echo; echo $files | xargs pep8 --statistic -qq --select=W | sort -n }
 pep8s(){[-z "$1" ] && 1="."; files=$(find $1 -name '*.py'); echo -n "Total issues: "; echo $files | xargs pep8 --count -qq; echo; echo $files | xargs pep8 --statistic -qq --select=E | sort -n; echo; echo $files | xargs pep8 --statistic -qq --select=W | sort -n }
 
-export PATH="$PATH:/opt/vertica/bin"
+export PATH=$PATH:/opt/vertica/bin
 
 
 function update_go() {
     packages="
-github.com/rogpeppe/godef
+code.google.com/p/rog-go/exp/cmd/godef
+
 github.com/ajstarks/svgo/benchviz
 github.com/axw/gocov/gocov
 github.com/cespare/prettybench
@@ -158,8 +159,9 @@ golang.org/x/tools/cmd/cover
 golang.org/x/tools/cmd/godoc
 golang.org/x/tools/cmd/goimports
 golang.org/x/tools/cmd/gorename
-golang.org/x/tools/cmd/guru
+golang.org/x/tools/cmd/oracle
 golang.org/x/tools/cmd/stringer
+golang.org/x/tools/cmd/vet
 
 sourcegraph.com/sqs/goreturns
 "
@@ -172,27 +174,4 @@ sourcegraph.com/sqs/goreturns
 alias vv='docker exec -i vertica_c vsql -U dbadmin'
 alias vvt='docker exec -it vertica_c vsql -U dbadmin'
 bindkey "^[l" down-case-word
-
-export ANDROID_HOME="$HOME/android"
-export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
-
-# Quick Jumps
-alias cdms="cd $GOPATH/src/github.com/agrarianlabs/"
-
-# Python config
-export PATH="$PATH:$HOME/anaconda2/bin"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# Find large files
-alias ducks='du -cks * | sort -rn | head'
-
-export NVM_DIR="/Users/keen/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# Custom ls output
-alias l='ls --color=auto -lah'
-
-# Update Github repos
-alias upd='for i in `ls`; do (cd $i; git checkout master; git pull); done'
 

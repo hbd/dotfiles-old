@@ -76,13 +76,6 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 
 ;;; End of Package ;;;
 
-(load-file "~/.emacs.files/web-browsing-setup.el")
-
-;;; Web Browsing Config ;;;
-
-
-;;; End of Web Browsing Config ;;;
-
 
 ;;; Golang config ;;;
 ;; Load go-mode
@@ -176,7 +169,7 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 (add-hook 'go-mode-hook 'go-eldoc-setup)
 
 ;; go-oracle
-(load-file "~/go/src/golang.org/x/tools/cmd/guru/go-guru.el")
+(load-file "~/go/src/golang.org/x/tools/cmd/oracle/oracle.el")
 ;(add-hook 'go-mode-hook 'go-oracle)
 (load-file "~/go/src/golang.org/x/tools/refactor/rename/go-rename.el")
 
@@ -347,10 +340,9 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
  '(cursor-color nil)
  '(custom-safe-themes
    (quote
-    ("561ba4316ba42fe75bc07a907647caa55fc883749ee4f8f280a29516525fc9e8" "135f98b22ab2884379122ce15f944d6f25d9dc647476c6acacb464148d06fd19" "7ee977247d099f1fa8e92f728b3ce00c2a0f4019eca0c0e0b193b834384470a3" "1ba61848d0d8c78e037867c26f118875705c20f5ad64949a8cee8c8059e5c50f" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "38ba6a938d67a452aeb1dada9d7cdeca4d9f18114e9fc8ed2b972573138d4664" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
+    ("1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "38ba6a938d67a452aeb1dada9d7cdeca4d9f18114e9fc8ed2b972573138d4664" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
  '(fci-rule-color "#073642")
  '(foreground-color nil)
- '(global-font-lock-mode t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
@@ -380,7 +372,7 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (helm-swoop monokai-theme helm-package helm-git helm-flycheck helm yaml-mode gnuplot json-mode markdown-mode go-snippets go-errcheck go-eldoc go-direx go-autocomplete flycheck dockerfile-mode direx sql-indent magit jedi iedit exec-path-from-shell epc elpy cyberpunk-theme ctable concurrent company)))
+    (helm-swoop monokai-theme helm-package helm-git helm-flycheck helm tern-auto-complete tern js2-mode web-mode jsfmt jsx-mode yaml-mode gnuplot json-mode markdown-mode go-snippets go-errcheck go-eldoc go-direx go-autocomplete flycheck dockerfile-mode direx sql-indent magit jedi iedit exec-path-from-shell epc elpy cyberpunk-theme ctable concurrent company)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
@@ -421,30 +413,99 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
    ["#002b36" "#cb4b16" "#586e75" "#657b83" "#839496" "#6c71c4" "#93a1a1" "#fdf6e3"]))
 
 
-;; React Native
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(web-mode-block-face ((t (:background "brightblue")))))
 
-(add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode))
+;;(eval-after-load 'flycheck
+;;  '(add-hook 'flycheck-mode-hook #'flycheck-gometalinter-setup))
 
-(setq web-mode-markup-indent-offset 2
-      web-mode-css-indent-offset 2
-      web-mode-code-indent-offset 2)
-(setq js-indent-level 2)
 
-(require 'nvm)
-(nvm-use (caar (last (nvm--installed-versions))))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
 
-(add-hook 'projectile-after-switch-project-hook 'mjs/setup-local-eslint)
+(defun start-fe-local()
+        "Save any unsaved buffers and start the frontend"
+        (interactive)
+        (save-some-buffers t)
+	(end-of-line-compile)
+        (compile "bash -c 'cd $GOPATH/src/github.com/agrarianlabs/farm-dashboard && make local_dev NOPULL=1'")
+	(end-of-line-compile))
 
-(defun mjs/setup-local-eslint ()
-      "If ESLint found in node_modules directory - use that for flycheck.
-Intended for use in PROJECTILE-AFTER-SWITCH-PROJECT-HOOK."
-      (interactive)
-      (let ((local-eslint (expand-file-name "./node_modules/.bin/eslint")))
-	(setq flycheck-javascript-eslint-executable
-	                  (and (file-exists-p local-eslint) local-eslint))))
+
+(add-hook 'web-mode-hook
+          (lambda ()
+            (web-mode-set-content-type "jsx")
+
+	    (setq web-mode-attr-indent-offset 2)
+	    (setq web-mode-attr-value-indent-offset 2)
+	    (setq web-mode-enable-control-block-indentation 2)
+	    (setq web-mode-code-indent-offset 2)
+	    (setq web-mode-css-indent-offset 2)
+	    (setq web-mode-markup-indent-offset 2)
+	    (setq web-mode-sql-indent-offset 2)
+
+            (setq js-indent-level 2)
+            (setq jsx-indent-level 2)
+            (setq indent-tabs-mode nil)
+
+	    (setq web-mode-enable-auto-indentation t)
+	    (setq web-mode-enable-auto-closing t)
+	    (setq web-mode-enable-auto-expanding t)
+	    (setq web-mode-enable-auto-opening t)
+	    (setq web-mode-enable-auto-pairing t)
+;;	    (setq web-mode-enable-auto-quoting t)
+	    (setq web-mode-enable-block-face t)
+	    (setq web-mode-enable-comment-interpolation t)
+	    (setq web-mode-enable-css-colorization t)
+	    (setq web-mode-enable-current-column-highlight t)
+	    (setq web-mode-enable-current-element-highlight t)
+	    (setq web-mode-enable-element-content-fontification t)
+	    (setq web-mode-enable-element-tag-fontification t)
+	    (setq web-mode-enable-engine-detection t)
+	    (setq web-mode-enable-heredoc-fontification t)
+	    (setq web-mode-enable-html-entities-fontification t)
+	    (setq web-mode-enable-inlays t)
+	    (setq web-mode-enable-part-face t)
+	    (setq web-mode-enable-sexp-functions t)
+	    (setq web-mode-enable-sql-detection t)
+	    (setq web-mode-enable-string-interpolation t)
+	    ;(setq web-mode-enable-whitespace-fontification t)
+
+	    (global-set-key (kbd "C-c .") 'tern-ac-complete)
+	    (global-set-key (kbd "C-c r") 'my-recompile)
+	    (global-set-key (kbd "C-c m") 'start-fe-local)
+	    (global-set-key (kbd "C-c k") 'kill-compilation)
+	    (flycheck-add-mode 'javascript-eslint 'web-mode)
+	    ;; Disable jshint in favor of eslint.
+	    (setq-default flycheck-disabled-checkers
+			  (append flycheck-disabled-checkers
+				  '(javascript-jshint)))
+            )
+	  )
+
+(add-hook 'web-mode-hook (lambda () (tern-mode t)))
+(eval-after-load 'tern
+   '(progn
+      (require 'tern-auto-complete)
+      (tern-ac-setup)))
+
+
+(defadvice web-mode-highlight-part (around tweak-jsx activate)
+  (if (equal web-mode-content-type "jsx")
+    (let ((web-mode-enable-part-face nil))
+      ad-do-it)
+    ad-do-it))
 
 ;; Octave mode for .m files
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
+
+(defun stop-tern-process ()
+  (interactive)
+  (delete-process "Tern"))
+
 
 ;; Experimental
 
@@ -465,8 +526,6 @@ Intended for use in PROJECTILE-AFTER-SWITCH-PROJECT-HOOK."
                            (error nil) ))
           minor-mode-list)
     (message "Active modes are %s" active-modes)))
-
-
 
 ;(setq helm-split-window-in-side-p t)
 ;(setq helm-M-x-fuzzy-match t) ;; Approximate match.
@@ -498,9 +557,6 @@ Intended for use in PROJECTILE-AFTER-SWITCH-PROJECT-HOOK."
   (push-mark)
   ad-do-it)
 
-(add-to-list 'custom-theme-load-path "/Users/keen/.dotfiles/dot.emacs.files/themes/color-theme-molokai")
-
-(add-to-list 'custom-theme-load-path "/Users/keen/.dotfiles/dot.emacs.files/themes/monokai-emacs")
 
 (load-theme 'monokai t)
 

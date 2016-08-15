@@ -14,6 +14,9 @@
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 (add-to-list 'package-archives
+	     '("org" . "http://orgmode.org/elpa/") t)
+
+(add-to-list 'package-archives
              '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
 
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
@@ -47,6 +50,7 @@
 	dockerfile-mode
 	flycheck
 	go-autocomplete
+
 	go-direx
 	go-eldoc
 	go-errcheck
@@ -60,11 +64,8 @@
 	helm-git
 	helm-flycheck
 
-        js2-mode
-	jsx-mode
-        web-mode
-        tern
-        tern-auto-complete
+	web-mode
+	nvm
 ))
 
 

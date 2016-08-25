@@ -119,7 +119,7 @@ function clean {
 }
 
 
-source ~/.zsh_git_prompt
+# source ~/.zsh_git_prompt
 PROMPT="
 (%{$fg_bold[blue]%}%n%{$reset_color%}@%{$fg_bold[green]%}%m%{$reset_color%}):<%{$fg_bold[cyan]%}%~%{$reset_color%}>
 [%{$fg_bold[red]%}%D{%r}%{$reset_color%}]%% "

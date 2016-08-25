@@ -31,7 +31,7 @@ ${GOROOT}:
 	@exit 1
 
 .go	: ${HOME}/goroot
-	${GOBIN}/go get -u code.google.com/p/rog-go/exp/cmd/godef
+	${GOBIN}/go get -u github.com/rogpeppe/godef
 	${GOBIN}/go get -u github.com/jstemmer/gotags
 	${GOBIN}/go get -u golang.org/x/tools/cmd/gorename
 	${GOBIN}/go get -u golang.org/x/tools/cmd/oracle
@@ -40,9 +40,8 @@ ${GOROOT}:
 	${GOBIN}/go get -u golang.org/x/tools/cmd/cover
 	${GOBIN}/go get -u golang.org/x/tools/cmd/godoc
 	${GOBIN}/go get -u golang.org/x/tools/cmd/stringer
-	${GOBIN}/go get -u golang.org/x/tools/cmd/vet
 	${GOBIN}/go get -u github.com/nsf/gocode
-	${GOBIN}/go get -u github.com/golang/lint/golint
+	${GOBIN}/go get -u github.com/golang/lint
 	${GOBIN}/go get -u github.com/kisielk/errcheck
 	@touch $@
 go	: .go

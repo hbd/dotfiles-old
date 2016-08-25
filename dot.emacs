@@ -76,10 +76,9 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 
 ;;; End of Package ;;;
 
-(load-file "~/.emacs.files/web-browsing-setup.el")
-
 ;;; Web Browsing Config ;;;
 
+;; (load-file "~/.emacs.files/web-browsing-setup.el")
 
 ;;; End of Web Browsing Config ;;;
 

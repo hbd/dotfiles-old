@@ -1,0 +1,47 @@
+assume-paste-time 1
+base-index 0
+bell-action any
+bell-on-alert off
+default-command ""
+default-shell "/usr/local/bin/zsh"
+destroy-unattached off
+detach-on-destroy on
+display-panes-active-colour red
+display-panes-colour blue
+display-panes-time 1000
+display-time 2500
+history-limit 900000
+lock-after-time 0
+lock-command "lock -np"
+message-command-style fg=yellow,bg=black
+message-style fg=black,bg=yellow
+mouse on
+mouse-utf8 on
+prefix C-b
+prefix2 <NONE>
+renumber-windows off
+repeat-time 500
+set -g mouse on
+" sane scrolling:
+bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'copy-mode -e; send-keys -M'"
+set-remain-on-exit off
+set-titles on
+set-titles-string "#S:#I:#W - "#T" #{session_alerts}"
+status on
+status-interval 2
+status-justify left
+status-keys emacs
+status-left "#{?client_prefix,#[fg=colour254]#[bg=colour31]#[bold]#[noitalics]#[nounderscore],#[fg=colour16]#[bg=colour254]#[bold]#[noitalics]#[nounderscore]} #S #{?client_prefix,#[fg=colour31],#[fg=colour254]}#[bg=colour233]#[nobold] #(env \$POWERLINE_COMMAND \$POWERLINE_COMMAND_ARGS tmux left --width=`tmux display -p '#{client_width}'` -R width_adjust=`tmux show-options -g status-right-length | cut -d' ' -f2` -R pane_id="`tmux display -p '#D'`")"
+status-left-length 20
+status-left-style default
+status-position bottom
+status-right "#(env "$POWERLINE_COMMAND" $POWERLINE_COMMAND_ARGS tmux right -R pane_id="`tmux display -p "#D"`" --width=`tmux display -p "#{client_width}"` -R width_adjust=`tmux show-options -g status-left-length | cut -d" " -f 2`)"
+status-right-length 150
+status-right-style default
+status-style fg=colour231,bg=colour233
+status-utf8 on
+update-environment "DISPLAY SSH_ASKPASS SSH_AUTH_SOCK SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY"
+visual-activity on
+visual-bell off
+visual-silence off
+word-separators " -_@"

@@ -40,11 +40,11 @@
     tool = ediff
 
 [user]
-	email = gcharmes@leaf.ag
-	name = Guillaume J. Charmes
-	signingkey = CB6E3FF3
+	email = zakkeener@gmail.com
+	name = Zachary A. Keener
+	signingkey = D74FFC0B
 
 [github]
-	user = creack
+	user = falafelizer
 [push]
 	default = simple

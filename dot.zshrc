@@ -54,7 +54,7 @@ ZSH_THEME="simple"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git brew go gnu-utils mosh osx tmux vagrant ssh-agent emacs docker encode64)
 
-ZSH_TMUX_AUTOSTART=true
+# ZSH_TMUX_AUTOSTART=true
 
 source $ZSH/oh-my-zsh.sh
 
@@ -64,7 +64,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 export LSCOLORS="ExFxCxDxBxegedabagacad"
 export LANG=en_US.UTF-8
 export GPGKEY=CB6E3FF3
-export PAGER="most"
+export PAGER="less"
 export HOSTTYPE=`uname -s`
 export HOST=`uname -n`
 export EDITOR="emacs"
@@ -179,4 +179,14 @@ alias vvt='docker exec -it vertica_c vsql -U dbadmin'
 bindkey "^[l" down-case-word
 
 fpath=(/usr/local/share/zsh-completions $fpath)
-source /usr/local/share/zsh/site-functions/_aws
+#source /usr/local/share/zsh/site-functions/_aws
+
+# Android
+export PATH="$PATH:$HOME/android/platform-tools"
+
+# Agrarian Labs: Blackbox Mobilespike
+alias cdms="cd /Users/keen/go/src/github.com/agrarianlabs/mobilespike"
+
+# School
+alias lab6="cd /u/zak/class/cs429/lab/6"
+alias ducks="du -cks * | sort -n"

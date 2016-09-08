@@ -128,9 +128,9 @@ echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCTRpitHLsmeDCT7N7ZJWh+EjDAFdsy9i7a7A
 }
 
 #install golang hg extenstion
-echo "
-[extensions]
-codereview = $target_home/goroot/lib/codereview/codereview.py
+#echo "
+#[extensions]
+#codereview = $target_home/goroot/lib/codereview/codereview.py
 
-[ui]
-username = Guillaume J. Charmes <guillaume@charmes.net>" >> $target_home/goroot/.hg/hgrc
+#[ui]
+#username = Guillaume J. Charmes <guillaume@charmes.net>" >> $target_home/goroot/.hg/hgrc

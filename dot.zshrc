@@ -54,7 +54,7 @@ ZSH_THEME="simple"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git brew go gnu-utils mosh osx tmux vagrant ssh-agent emacs docker encode64 almostontop)
 
-ZSH_TMUX_AUTOSTART=true
+# ZSH_TMUX_AUTOSTART=true
 
 source $ZSH/oh-my-zsh.sh
 
@@ -64,7 +64,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 export LSCOLORS="ExFxCxDxBxegedabagacad"
 export LANG=en_US.UTF-8
 export GPGKEY=CB6E3FF3
-export PAGER="most"
+export PAGER="less"
 export HOSTTYPE=`uname -s`
 export HOST=`uname -n`
 export EDITOR="emacs"
@@ -270,3 +270,4 @@ export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
 alias cdm="cd ~/groupthreads/mobile-dash/"
+fpath=(/usr/local/share/zsh-completions $fpath)

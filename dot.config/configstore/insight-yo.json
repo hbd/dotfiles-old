@@ -1,4 +1,9 @@
 {
 	"clientId": 702845373902,
-	"optOut": false
+	"optOut": false,
+	"queue": {
+		"1457793541537 /": "/",
+		"1457793541565 /yoyo/init": "/yoyo/init",
+		"1457793541622 /yoyo/home": "/yoyo/home"
+	}
 }

@@ -506,3 +506,13 @@ Intended for use in PROJECTILE-AFTER-SWITCH-PROJECT-HOOK."
 (setq compilation-scroll-output t)
 
 (global-set-key (kbd "C-s") 'helm-swoop)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(hl-line ((t (:background "color-240")))))
+
+;; Add custom snippets
+  (autoload 'verilog-mode "verilog-mode" "Verilog mode" t )
+  (add-to-list 'auto-mode-alist '("\\.[ds]?vh?\\'" . verilog-mode))

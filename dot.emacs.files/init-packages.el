@@ -66,6 +66,8 @@
 
 	web-mode
 	nvm
+
+	verilog-mode
 ))
 
 
@@ -81,4 +83,6 @@
   (unless (package-installed-p package)
     (package-install package)))
 
-;; Add custom snippets
+(provide 'init-packages)
+
+;;; init-packages.el ends here

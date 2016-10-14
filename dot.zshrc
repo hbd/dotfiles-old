@@ -176,9 +176,6 @@ bindkey "^[l" down-case-word
 export ANDROID_HOME="$HOME/android"
 export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
 
-# Quick Jumps
-alias cdms="cd $GOPATH/src/github.com/agrarianlabs/"
-
 # Python config
 export PATH="$PATH:$HOME/anaconda2/bin"
 
@@ -187,12 +184,89 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # Find large files
 alias ducks='du -cks * | sort -rn | head'
 
-export NVM_DIR="/Users/keen/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
 # Custom ls output
 alias l='ls --color=auto -lah'
 
 # Update Github repos
 alias upd='for i in `ls`; do (cd $i; git checkout master; git pull); done'
 
+function _installgo() {
+    set -e
+
+    if [ -z "$1" ]; then
+	echo 'Usage: installgo <versionMajor.versionMinor>' >& 2
+	false
+    fi
+    version=$1
+
+    if [ ! -d ~/go$version ]; then
+	git clone https://github.com/golang/go ~/go$version
+    fi
+
+    cd ~/go$version/src
+    rev=$(git rev-parse HEAD)
+    git checkout master && git pull
+    git checkout $rev
+
+    latest=$(git tag -l | \grep go$version | \grep -v 'beta' | \grep -v 'rc' | sort | tail -1)
+    if [ -z "$latest" ]; then
+	echo "No tag found for go$version" >&2
+	false
+    fi
+
+    if [ "$(git rev-parse $latest)" != "$(git rev-parse HEAD)" ]; then
+	setgo $version
+	git checkout $latest
+	./make.bash
+    fi
+}
+
+function installgo() {
+    $SHELL -c "source ~/.zshrc; _installgo $@"
+}
+
+## Golang version swticher
+export ORIGIN_PATH=$PATH
+export GOLINK=~/go
+
+function setgo() {
+    if [ -z "$1" ]; then
+	echo 'Usage: setgo <versionMajor.versionMinor>' >& 2
+	return 1
+    fi
+
+    version=$1
+
+    echo -n 'Using: '
+    ~/go$version/bin/go version 2> /dev/null
+    if [ $? != 0 ]; then
+	echo
+	echo 'go '$version' not found, please run `installgo '$version'`'
+	return 1
+    fi
+
+    export GOROOT=~/go$version
+    export GOBIN=$GOROOT/bin
+    export GOPATH=~/gopath$version
+    export PATH=$GOBIN:$ORIGIN_PATH
+    export CURGOVERSION=go$version
+    rm -f $GOLINK > /dev/null
+    ln -s $GOPATH $GOLINK
+}
+
+setgo 1.6 > /dev/null
+
+export NVM_DIR="/Users/zak/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+## Meteor setup
+export PATH=$PATH:$HOME/.meteor
+
+## golang
+
+export GOROOT=~/go/goroot
+export GOPATH=~/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+
+alias cdm="cd ~/groupthreads/mobile-dash/"

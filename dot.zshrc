@@ -185,7 +185,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 alias ducks='du -cks * | sort -rn | head'
 
 # Custom ls output
-alias l='ls --color=auto -lah'
+alias l='ls -lah'
 
 # Update Github repos
 alias upd='for i in `ls`; do (cd $i; git checkout master; git pull); done'

@@ -70,11 +70,10 @@ export HOST=`uname -n`
 export EDITOR="emacs"
 export SHELL="/usr/local/bin/zsh"
 
-export GOROOT="$HOME/go1.6"
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 
-export PATH="$GOBIN:/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$GOBIN:/usr/local/sbin:$PATH"
 
 function loaddocker() {
     if [ ! -f /tmp/.dockercache ]; then
@@ -245,7 +244,7 @@ function setgo() {
 	return 1
     fi
 
-    export GOROOT=~/go$version
+#     export GOROOT=~/go$version
     export GOBIN=$GOROOT/bin
     export GOPATH=~/gopath$version
     export PATH=$GOBIN:$ORIGIN_PATH
@@ -254,7 +253,7 @@ function setgo() {
     ln -s $GOPATH $GOLINK
 }
 
-setgo 1.6 > /dev/null
+# setgo 1.6 > /dev/null
 
 export NVM_DIR="/Users/zak/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -264,7 +263,7 @@ export PATH=$PATH:$HOME/.meteor
 
 ## golang
 
-export GOROOT=~/go/goroot
+export GOROOT=~/go163
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin

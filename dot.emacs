@@ -174,15 +174,6 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 
 (add-hook 'go-mode-hook 'go-eldoc-setup)
 
-<<<<<<< HEAD
-;; go-oracle
-(load-file "~/go/src/golang.org/x/tools/cmd/guru/go-guru.el")
-;(add-hook 'go-mode-hook 'go-oracle)
-(load-file "~/go/src/golang.org/x/tools/refactor/rename/go-rename.el")
-
-=======
->>>>>>> 816cec71cf1e75bc6eb9de287221b44ca247675c
-
 ;;; End of Golang config ;;
 
 ;;; Setup auto-complete ;;;

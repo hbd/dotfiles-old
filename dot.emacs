@@ -336,13 +336,9 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
  '(cursor-color nil)
-<<<<<<< HEAD
  '(custom-safe-themes
    (quote
     ("561ba4316ba42fe75bc07a907647caa55fc883749ee4f8f280a29516525fc9e8" "135f98b22ab2884379122ce15f944d6f25d9dc647476c6acacb464148d06fd19" "7ee977247d099f1fa8e92f728b3ce00c2a0f4019eca0c0e0b193b834384470a3" "1ba61848d0d8c78e037867c26f118875705c20f5ad64949a8cee8c8059e5c50f" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "38ba6a938d67a452aeb1dada9d7cdeca4d9f18114e9fc8ed2b972573138d4664" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
-=======
- '(custom-safe-themes (quote ("71ecffba18621354a1be303687f33b84788e13f40141580fa81e7840752d31bf" "135f98b22ab2884379122ce15f944d6f25d9dc647476c6acacb464148d06fd19" "7ee977247d099f1fa8e92f728b3ce00c2a0f4019eca0c0e0b193b834384470a3" "1ba61848d0d8c78e037867c26f118875705c20f5ad64949a8cee8c8059e5c50f" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "38ba6a938d67a452aeb1dada9d7cdeca4d9f18114e9fc8ed2b972573138d4664" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
->>>>>>> 816cec71cf1e75bc6eb9de287221b44ca247675c
  '(fci-rule-color "#073642")
  '(foreground-color nil)
  '(global-font-lock-mode t)
@@ -353,17 +349,12 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
  '(hl-bg-colors (quote ("#7B6000" "#8B2C02" "#990A1B" "#93115C" "#3F4D91" "#00629D" "#00736F" "#546E00")))
  '(hl-fg-colors (quote ("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36")))
  '(magit-diff-use-overlays nil)
-<<<<<<< HEAD
  '(nrepl-message-colors
    (quote
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
     (helm-swoop monokai-theme helm-package helm-git helm-flycheck helm yaml-mode gnuplot json-mode markdown-mode go-snippets go-errcheck go-eldoc go-direx go-autocomplete flycheck dockerfile-mode direx sql-indent magit jedi iedit exec-path-from-shell epc elpy cyberpunk-theme ctable concurrent company)))
-=======
- '(nrepl-message-colors (quote ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
- '(package-selected-packages (quote (helm-swoop monokai-theme helm-package helm-git helm-flycheck helm tern-auto-complete tern js2-mode web-mode jsfmt jsx-mode yaml-mode gnuplot json-mode markdown-mode go-snippets go-errcheck go-eldoc go-direx go-autocomplete flycheck dockerfile-mode direx sql-indent magit jedi iedit exec-path-from-shell epc elpy cyberpunk-theme ctable concurrent company)))
->>>>>>> 816cec71cf1e75bc6eb9de287221b44ca247675c
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
@@ -381,9 +372,6 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
  '(xterm-color-names-bright ["#002b36" "#cb4b16" "#586e75" "#657b83" "#839496" "#6c71c4" "#93a1a1" "#fdf6e3"]))
 
 
-<<<<<<< HEAD
-;; React Native
-=======
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -405,7 +393,6 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 	(end-of-line-compile)
         (compile "bash -c 'cd $GOPATH/src/github.com/agrarianlabs/farm-dashboard && make local_dev NOPULL=1'")
 	(end-of-line-compile))
->>>>>>> 816cec71cf1e75bc6eb9de287221b44ca247675c
 
 (add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode))
 
@@ -491,10 +478,6 @@ Intended for use in PROJECTILE-AFTER-SWITCH-PROJECT-HOOK."
 (setq compilation-scroll-output t)
 
 (global-set-key (kbd "C-s") 'helm-swoop)
-<<<<<<< HEAD
-=======
-
->>>>>>> 816cec71cf1e75bc6eb9de287221b44ca247675c
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -502,15 +485,6 @@ Intended for use in PROJECTILE-AFTER-SWITCH-PROJECT-HOOK."
  ;; If there is more than one, they won't work right.
  '(hl-line ((t (:background "color-240")))))
 
-<<<<<<< HEAD
 ;; Add custom snippets
   (autoload 'verilog-mode "verilog-mode" "Verilog mode" t )
   (add-to-list 'auto-mode-alist '("\\.[ds]?vh?\\'" . verilog-mode))
-=======
-;; Verilog
-;; (add-to-list 'load-path "~/.dotfiles/dot.emacs.files/verilog")
-;; (load-file "~/.dotfiles/dot.emacs.files/verilog/verilog-mode.el")
-(autoload 'verilog-mode "verilog-mode" "Verilog mode" t )
-(add-to-list 'auto-mode-alist '("\\.[ds]?vh?\\'" . verilog-mode))
-
->>>>>>> 816cec71cf1e75bc6eb9de287221b44ca247675c

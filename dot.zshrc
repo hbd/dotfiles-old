@@ -54,7 +54,7 @@ ZSH_THEME="simple"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git brew go gnu-utils mosh osx tmux vagrant ssh-agent emacs docker encode64 almostontop)
 
-# ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART=true
 
 source $ZSH/oh-my-zsh.sh
 

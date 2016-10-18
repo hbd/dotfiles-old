@@ -175,6 +175,9 @@ bindkey "^[l" down-case-word
 export ANDROID_HOME="$HOME/android"
 export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
 
+# Quick Jumps
+alias cdms="cd $GOPATH/src/github.com/agrarianlabs/"
+
 # Python config
 export PATH="$PATH:$HOME/anaconda2/bin"
 
@@ -182,6 +185,9 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # Find large files
 alias ducks='du -cks * | sort -rn | head'
+
+export NVM_DIR="/Users/keen/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Custom ls output
 alias l='ls -lah'

@@ -32,4 +32,3 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 # Install common python tools
 # --> Powerline
 pip install powerline-status
-

@@ -125,7 +125,7 @@ chmod 644 /etc/mercurial/hgrc.d/trust.rc
 
 # Setup my public ssh key
 mkdir -p $target_home/.ssh
-echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC74ZXNwJnp3Ocx9jWXCdVuzT03fIBr8xYlr7RU6lLDwrxbDS3aZnGFp4TBldELwymdIvdRa2gFZ0b24YoRw6+h+4ByiWPsS5lEvTtPFeH9SM/M3Ps0+DLVVC/PacdegUsanLLhvn2rBP5Fjr8D2m43cbVzYOnqwe7l/8iFxWtyOCUu8SQtqSfSYaPGE+XYLK8nRZDK4BDCBBkV2dvrCcaU82OK/IcrNXnf4ed5DZ5+jjDL7z5gtEEdon67u2EmVCl4oQW2whT9ID6CgyHwgKC/L2BmUJaC3keCWnGJKIRlknb/s3CSKzZkDywIvFmy/HYq1Bxc/U+5yxAf6fh4RBa3tCEgsVbqPaNMvnNP0QQ3iJUOLRnDqXLKE1zVbaxokFsbNr5HfcbsKMrbC9IKzf3o4ZRYYxvtUXWCRjcoYVWt566FYH4JSdQlUmHhMIpI1G12++J0kRUFMd6di6SMhO1udOtjZ++FVXDAo59RRwqtQuRVwEfSdMSZK77EwwJrZEPlngLy8mhdhiZySRQd67Khdm3QNjXkyPTcYeJCmo7uGC7gyH3Fsc4tlatvMS/U3mmLsI20PRzpgf+41523N1Eqnj8QSq20AnmeJQ3eMtYY6cNETWt5TVnU7J4RdThmVcT9zzYa7xzqp6x9y2H3Gtt2ju+SJ2Eupn+SIY04nRsWYQ== zakkeener@gmail.com' >> $target_home/.ssh/authorized_keys
+echo '[KEY HERE]' >> $target_home/.ssh/authorized_keys
 }
 
 #install golang hg extenstion
